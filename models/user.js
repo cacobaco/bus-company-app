@@ -28,15 +28,15 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        pass: {
-            type: Schema.Types.ObjectId,
-            ref: "Pass",
-        },
         role: {
             type: String,
             enum: ["user", "manager", "admin"],
             required: true,
             default: "user",
+        },
+        pass: {
+            type: Schema.Types.ObjectId,
+            ref: "Pass",
         },
     },
     { timestamps: true }

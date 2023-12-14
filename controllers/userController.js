@@ -40,8 +40,8 @@ export const createUser = (req, res) => {
         name: req.body.name,
         username: req.body.username,
         email: req.body.email,
-        pass: req.body.pass,
         role: req.body.role,
+        pass: req.body.pass,
     });
 
     User.register(user, req.body.password, (err, user) => {
