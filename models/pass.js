@@ -14,6 +14,10 @@ const passSchema = new Schema(
             required: true,
             unique: true,
         },
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+        },
         value: {
             type: Number,
             required: true,

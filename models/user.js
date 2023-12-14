@@ -28,10 +28,9 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        isDriver: {
-            type: Boolean,
-            required: true,
-            default: false,
+        pass: {
+            type: Schema.Types.ObjectId,
+            ref: "Pass",
         },
         isManager: {
             type: Boolean,
@@ -42,10 +41,6 @@ const userSchema = new Schema(
             type: Boolean,
             required: true,
             default: false,
-        },
-        driverLicense: {
-            type: String,
-            required: false,
         },
     },
     { timestamps: true }
