@@ -41,8 +41,7 @@ export const createUser = (req, res) => {
         username: req.body.username,
         email: req.body.email,
         pass: req.body.pass,
-        isManager: req.body.isManager,
-        isAdmin: req.body.isAdmin,
+        role: req.body.role,
     });
 
     User.register(user, req.body.password, (err, user) => {
