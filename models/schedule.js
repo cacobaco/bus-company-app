@@ -14,6 +14,11 @@ const scheduleSchema = new Schema(
             ref: "Career",
             required: true,
         },
+        type: {
+            type: String,
+            enum: ["weekday", "weekend", "holiday"],
+            required: true,
+        },
         // implementar relação com paragens
     },
     { timestamps: true }

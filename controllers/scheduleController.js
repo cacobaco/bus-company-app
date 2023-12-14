@@ -38,6 +38,7 @@ export const getSchedule = (req, res) => {
 export const createSchedule = (req, res) => {
     const schedule = new Schedule({
         career: req.body.career,
+        type: req.body.type,
     });
 
     schedule.save((err, schedule) => {
