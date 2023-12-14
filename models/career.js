@@ -14,10 +14,12 @@ const careerSchema = new Schema(
             required: true,
             unique: true,
         },
-        schedule: {
-            type: Schema.Types.ObjectId,
-            ref: "Schedule",
-        },
+        schedules: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Schedule",
+            },
+        ],
     },
     { timestamps: true }
 );
