@@ -36,13 +36,9 @@ export const getPass = (req, res) => {
 
 // POST /passes
 export const createPass = (req, res) => {
-    const pass = new Pass({
-        code: req.body.code,
-        user: req.body.user,
-        price: req.body.price,
-    });
+    const newPass = new Pass(req.body);
 
-    pass.save((err, pass) => {
+    newPass.save((err, pass) => {
         if (err) {
             return res.status(500).json({
                 message: "Error saving pass",

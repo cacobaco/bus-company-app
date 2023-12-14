@@ -36,7 +36,7 @@ export const getUser = (req, res) => {
 
 // POST /users
 export const createUser = (req, res) => {
-    const user = new User({
+    const newUser = new User({
         name: req.body.name,
         username: req.body.username,
         email: req.body.email,
@@ -44,7 +44,7 @@ export const createUser = (req, res) => {
         pass: req.body.pass,
     });
 
-    User.register(user, req.body.password, (err, user) => {
+    User.register(newUser, req.body.password, (err, user) => {
         if (err) {
             console.log(err);
 

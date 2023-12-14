@@ -36,12 +36,9 @@ export const getCareer = (req, res) => {
 
 // POST /careers
 export const createCareer = (req, res) => {
-    const career = new Career({
-        code: req.body.code,
-        schedule: req.body.schedule,
-    });
+    const newCareer = new Career(req.body);
 
-    career.save((err, career) => {
+    newCareer.save((err, career) => {
         if (err) {
             return res.status(500).json({
                 message: "Error saving career",

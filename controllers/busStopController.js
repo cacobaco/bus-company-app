@@ -36,12 +36,9 @@ export const getBusStop = (req, res) => {
 
 // POST /busstops
 export const createBusStop = (req, res) => {
-    const busStop = new BusStop({
-        name: req.body.name,
-        location: req.body.location,
-    });
+    const newBusStop = new BusStop(req.body);
 
-    busStop.save((err, busStop) => {
+    newBusStop.save((err, busStop) => {
         if (err) {
             return res.status(500).json({
                 message: "Error saving bus stop",

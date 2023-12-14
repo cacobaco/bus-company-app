@@ -36,12 +36,9 @@ export const getSchedule = (req, res) => {
 
 // POST /schedules
 export const createSchedule = (req, res) => {
-    const schedule = new Schedule({
-        career: req.body.career,
-        type: req.body.type,
-    });
+    const newSchedule = new Schedule(req.body);
 
-    schedule.save((err, schedule) => {
+    newSchedule.save((err, schedule) => {
         if (err) {
             return res.status(500).json({
                 message: "Error saving schedule",
