@@ -6,14 +6,6 @@ export const isManager = (req, res, next) => {
     }
 };
 
-export const notManager = (req, res, next) => {
-    if (req.user.isManager) {
-        res.redirect("/");
-    } else {
-        next();
-    }
-};
-
 export const isAdmin = (req, res, next) => {
     if (req.user.isAdmin) {
         next();
@@ -22,10 +14,10 @@ export const isAdmin = (req, res, next) => {
     }
 };
 
-export const notAdmin = (req, res, next) => {
-    if (req.user.isAdmin) {
-        res.redirect("/");
-    } else {
+export const isManagerOrAdmin = (req, res, next) => {
+    if (req.user.isManager || req.user.isAdmin) {
         next();
+    } else {
+        res.redirect("/");
     }
 };
