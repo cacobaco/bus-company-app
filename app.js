@@ -3,13 +3,17 @@ import express, { json, urlencoded, static as static_ } from "express";
 import { join } from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
+import path from "path";
+import { fileURLToPath } from "url";
 
-import indexRouter from "./routes/index";
-import usersRouter from "./routes/users";
+import router from "./routes/routes.js";
 
 var app = express();
 
 // view engine setup
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.set("views", join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -19,8 +23,7 @@ app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(static_(join(__dirname, "public")));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use(router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
