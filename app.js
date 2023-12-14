@@ -40,7 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-passport.use(new Strategy(User.authenticate()));
+passport.use(User.createStrategy());
 
 // view engine setup
 const __filename = fileURLToPath(import.meta.url);
