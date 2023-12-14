@@ -1,5 +1,5 @@
 export const isManager = (req, res, next) => {
-    if (req.user.isManager) {
+    if (req.user.role === "manager") {
         next();
     } else {
         res.redirect("/");
@@ -7,7 +7,7 @@ export const isManager = (req, res, next) => {
 };
 
 export const isAdmin = (req, res, next) => {
-    if (req.user.isAdmin) {
+    if (req.user.role === "admin") {
         next();
     } else {
         res.redirect("/");
@@ -15,7 +15,7 @@ export const isAdmin = (req, res, next) => {
 };
 
 export const isManagerOrAdmin = (req, res, next) => {
-    if (req.user.isManager || req.user.isAdmin) {
+    if (req.user.role === "manager" || req.user.role === "admin") {
         next();
     } else {
         res.redirect("/");

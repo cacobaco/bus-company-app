@@ -32,15 +32,11 @@ const userSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "Pass",
         },
-        isManager: {
-            type: Boolean,
+        role: {
+            type: String,
+            enum: ["user", "manager", "admin"],
             required: true,
-            default: false,
-        },
-        isAdmin: {
-            type: Boolean,
-            required: true,
-            default: false,
+            default: "user",
         },
     },
     { timestamps: true }
