@@ -3,7 +3,5 @@ export const getLogin = (req, res) => {
 };
 
 export const createLogin = (req, res) => {
-    res.json({
-        message: "To be implemented.",
-    });
+    res.render("login", { title: "Login" });
 };

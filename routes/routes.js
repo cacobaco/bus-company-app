@@ -1,14 +1,18 @@
 import { Router } from "express";
+import {
+    isAuthenticated,
+    notAuthenticated,
+} from "../middlewares/authMiddleware.js";
 import { getIndex } from "../controllers/indexController.js";
 import { getLogin, createLogin } from "../controllers/loginController.js";
 
 const router = Router();
 
-// HOME PAGE
-router.get("/", getIndex);
+// PUBLIC ROUTES
+router.get("/login", notAuthenticated, getLogin);
+router.post("/login", notAuthenticated, createLogin);
 
-// LOGIN PAGE
-router.get("/login", getLogin);
-router.post("/login", createLogin);
+// PRIVATE ROUTES
+router.get("/", isAuthenticated, getIndex);
 
 export default router;

@@ -6,7 +6,9 @@ import logger from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 import mongoose from "mongoose";
-import passport, { Strategy } from "passport";
+import session from "express-session";
+import passport from "passport";
+import Strategy from "passport-local";
 
 import User from "./models/user.js";
 import router from "./routes/routes.js";
@@ -27,6 +29,13 @@ mongoose
 var app = express();
 
 // passport setup
+app.use(
+    session({
+        secret: "keyboard cat",
+        resave: true,
+        saveUninitialized: true,
+    })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 passport.serializeUser(User.serializeUser());
