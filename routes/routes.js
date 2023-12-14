@@ -43,6 +43,13 @@ import {
     deleteSchedule,
 } from "../controllers/scheduleController.js";
 import {
+    getScheduleStops,
+    getScheduleStop,
+    createScheduleStop,
+    updateScheduleStop,
+    deleteScheduleStop,
+} from "../controllers/scheduleStopsController.js";
+import {
     createBusStop,
     deleteBusStop,
     getBusStop,
@@ -81,6 +88,37 @@ router.delete(
     isAuthenticated,
     isManagerOrAdmin,
     deleteSchedule
+);
+
+router.get(
+    "/schedulestops",
+    isAuthenticated,
+    isManagerOrAdmin,
+    getScheduleStops
+);
+router.get(
+    "/schedulestops/:id",
+    isAuthenticated,
+    isManagerOrAdmin,
+    getScheduleStop
+);
+router.post(
+    "/schedulestops",
+    isAuthenticated,
+    isManagerOrAdmin,
+    createScheduleStop
+);
+router.patch(
+    "/schedulestops/:id",
+    isAuthenticated,
+    isManagerOrAdmin,
+    updateScheduleStop
+);
+router.delete(
+    "/schedulestops/:id",
+    isAuthenticated,
+    isManagerOrAdmin,
+    deleteScheduleStop
 );
 
 router.get("/busstops", isAuthenticated, isManagerOrAdmin, getBusStops);
