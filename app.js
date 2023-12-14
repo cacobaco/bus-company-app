@@ -5,10 +5,33 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
+import mongoose from "mongoose";
+import passport, { Strategy } from "passport";
 
+import User from "./models/user.js";
 import router from "./routes/routes.js";
 
+// database setup
+mongoose
+    .connect(
+        "mongodb+srv://user:9gi86UGuDE6E9hbD@cluster0.klo1mxd.mongodb.net/?retryWrites=true&w=majority"
+    )
+    .then(() => {
+        console.log("Connected to MongoDB Atlas");
+    })
+    .catch((err) => {
+        console.log("Failed to connect to MongoDB Atlas", err);
+    });
+
+// web server setup
 var app = express();
+
+// passport setup
+app.use(passport.initialize());
+app.use(passport.session());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+passport.use(new Strategy(User.authenticate()));
 
 // view engine setup
 const __filename = fileURLToPath(import.meta.url);
@@ -23,6 +46,7 @@ app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(static_(join(__dirname, "public")));
 
+// routes setup
 app.use(router);
 
 // catch 404 and forward to error handler
