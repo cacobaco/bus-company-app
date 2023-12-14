@@ -18,7 +18,12 @@ const busStopSchema = new Schema(
             type: String,
             required: true,
         },
-        // implementar relação com horários
+        schedules: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Schedule",
+            },
+        ],
     },
     { timestamps: true }
 );
