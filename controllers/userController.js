@@ -2,7 +2,16 @@ import User from "../models/user.js";
 
 // GET /users
 export const getUsers = (req, res) => {
-    res.render("users", { title: "Login" });
+    User.find({}, (err, users) => {
+        if (err) {
+            return res.status(500).json({
+                message: "Error getting users.",
+                error: err,
+            });
+        }
+
+        return res.json(users);
+    });
 };
 
 // GET /users/:id
