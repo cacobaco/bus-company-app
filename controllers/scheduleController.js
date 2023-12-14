@@ -57,7 +57,7 @@ export const createSchedule = (req, res) => {
 
 // PATCH /schedules/:id
 export const updateSchedule = (req, res) => {
-    res.json({
+    return res.json({
         message: "To be implemented",
     });
 };

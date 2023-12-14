@@ -55,7 +55,7 @@ export const createUser = (req, res) => {
             });
         }
 
-        res.json({
+        return res.json({
             message: "User created successfully",
             user,
         });
@@ -64,7 +64,7 @@ export const createUser = (req, res) => {
 
 // PATCH /users/:id
 export const updateUser = (req, res) => {
-    res.json({
+    return res.json({
         message: "To be implemented",
     });
 };

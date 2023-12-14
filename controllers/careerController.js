@@ -58,7 +58,7 @@ export const createCareer = (req, res) => {
 
 // PATCH /careers/:id
 export const updateCareer = (req, res) => {
-    res.json({
+    return res.json({
         message: "To be implemented",
     });
 };

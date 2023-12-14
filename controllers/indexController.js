@@ -1,4 +1,4 @@
 // GET /
 export const getIndex = (req, res) => {
-    res.render("index", { title: "Home" });
+    return res.render("index", { title: "Home" });
 };

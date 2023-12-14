@@ -58,7 +58,7 @@ export const createBusStop = (req, res) => {
 
 // PATCH /busstops/:id
 export const updateBusStop = (req, res) => {
-    res.json({
+    return res.json({
         message: "To be implemented",
     });
 };

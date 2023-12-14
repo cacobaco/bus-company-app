@@ -59,7 +59,7 @@ export const createPass = (req, res) => {
 
 // PATCH /passes/:id
 export const updatePass = (req, res) => {
-    res.json({
+    return res.json({
         message: "To be implemented",
     });
 };
