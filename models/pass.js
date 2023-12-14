@@ -18,7 +18,7 @@ const passSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "User",
         },
-        value: {
+        price: {
             type: Number,
             required: true,
         },
