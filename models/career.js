@@ -14,12 +14,18 @@ const careerSchema = new Schema(
             required: true,
             unique: true,
         },
-        schedules: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "Schedule",
-            },
-        ],
+        weekdaySchedule: {
+            type: Schema.Types.ObjectId,
+            ref: "Schedule",
+        },
+        weekendSchedule: {
+            type: Schema.Types.ObjectId,
+            ref: "Schedule",
+        },
+        holidaySchedule: {
+            type: Schema.Types.ObjectId,
+            ref: "Schedule",
+        },
     },
     { timestamps: true }
 );
