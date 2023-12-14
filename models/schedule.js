@@ -9,17 +9,18 @@ const scheduleSchema = new Schema(
             autoIncrement: true,
             primaryKey: true,
         },
-        career: {
-            type: Schema.Types.ObjectId,
-            ref: "Career",
-            required: true,
-        },
         type: {
             type: String,
             enum: ["weekday", "weekend", "holiday"],
             required: true,
+            default: "weekday",
         },
-        // implementar relação com paragens
+        scheduleStops: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "ScheduleStop",
+            },
+        ],
     },
     { timestamps: true }
 );

@@ -18,10 +18,10 @@ const busStopSchema = new Schema(
             type: String,
             required: true,
         },
-        schedules: [
+        scheduleStops: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "Schedule",
+                ref: "ScheduleStop",
             },
         ],
     },
