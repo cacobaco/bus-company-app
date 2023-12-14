@@ -21,6 +21,13 @@ import {
     updateUser,
     deleteUser,
 } from "../controllers/userController.js";
+import {
+    getCareers,
+    getCareer,
+    createCareer,
+    updateCareer,
+    deleteCareer,
+} from "../controllers/careerController.js";
 
 const router = Router();
 
@@ -33,6 +40,11 @@ router.get("/", isAuthenticated, getIndex);
 router.post("/logout", isAuthenticated, createLogout);
 
 // PRIVATE ROUTES - MANAGER
+router.get("/careers", isAuthenticated, isManagerOrAdmin, getCareers);
+router.get("/careers/:id", isAuthenticated, isManagerOrAdmin, getCareer);
+router.post("/careers", isAuthenticated, isManagerOrAdmin, createCareer);
+router.patch("/careers/:id", isAuthenticated, isManagerOrAdmin, updateCareer);
+router.delete("/careers/:id", isAuthenticated, isManagerOrAdmin, deleteCareer);
 
 // PRIVATE ROUTES - ADMIN
 router.get("/users", isAuthenticated, isAdmin, getUsers);
