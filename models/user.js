@@ -27,30 +27,30 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    is_driver: {
+    isDriver: {
         type: Boolean,
         required: true,
         default: false,
     },
-    is_manager: {
+    isManager: {
         type: Boolean,
         required: true,
         default: false,
     },
-    is_admin: {
+    isAdmin: {
         type: Boolean,
         required: true,
         default: false,
     },
-    driver_license: {
+    driverLicense: {
         type: String,
         required: false,
     },
-    created_at: {
+    createdAt: {
         type: Date,
         default: Date.now,
     },
-    updated_at: {
+    updatedAt: {
         type: Date,
     },
 });
