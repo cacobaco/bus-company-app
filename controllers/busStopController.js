@@ -35,7 +35,7 @@ export const getBusStop = (req, res) => {
 };
 
 // POST /busstops
-export const crateBusStop = (req, res) => {
+export const createBusStop = (req, res) => {
     const busStop = new BusStop({
         name: req.body.name,
         location: req.body.location,
