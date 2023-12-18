@@ -31,6 +31,16 @@ export const createLogin = passport.authenticate("local", {
 
 // POST /logout
 export const createLogout = (req, res) => {
-    req.logout();
-    return res.redirect("/login");
+    req.logout((err) => {
+        if (err) {
+            console.log(err);
+
+            return res.status(500).json({
+                message: "Error logging out",
+                error: err,
+            });
+        }
+
+        return res.redirect("/login");
+    });
 };
