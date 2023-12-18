@@ -43,7 +43,7 @@ import {
     deleteSchedule,
 } from "../controllers/scheduleController.js";
 import {
-    getScheduleStops,
+    getSchedulesStops,
     getScheduleStop,
     createScheduleStop,
     updateScheduleStop,
@@ -94,7 +94,7 @@ router.get(
     "/schedulestops",
     isAuthenticated,
     isManagerOrAdmin,
-    getScheduleStops
+    getSchedulesStops
 );
 router.get(
     "/schedulestops/:id",
