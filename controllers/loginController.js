@@ -23,6 +23,7 @@ export const getLogin = (req, res) => {
     return res.render("login", { title: "Login" });
 };
 
+// POST /login
 export const createLogin = passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/login",
