@@ -2,13 +2,6 @@ import mongoose, { Schema } from "mongoose";
 
 const scheduleSchema = new Schema(
     {
-        id: {
-            type: Number,
-            required: true,
-            unique: true,
-            autoIncrement: true,
-            primaryKey: true,
-        },
         type: {
             type: String,
             enum: ["weekday", "weekend", "holiday"],

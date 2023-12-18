@@ -2,13 +2,6 @@ import mongoose, { Schema } from "mongoose";
 
 const scheduleStopSchema = new Schema(
     {
-        id: {
-            type: Number,
-            required: true,
-            unique: true,
-            autoIncrement: true,
-            primaryKey: true,
-        },
         schedule: {
             type: Schema.Types.ObjectId,
             ref: "Schedule",

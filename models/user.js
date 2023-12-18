@@ -3,13 +3,6 @@ import passportLocalMongoose from "passport-local-mongoose";
 
 const userSchema = new Schema(
     {
-        id: {
-            type: Number,
-            required: true,
-            unique: true,
-            autoIncrement: true,
-            primaryKey: true,
-        },
         name: {
             type: String,
             required: true,
@@ -23,10 +16,6 @@ const userSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-        },
-        password: {
-            type: String,
-            required: true,
         },
         role: {
             type: String,
