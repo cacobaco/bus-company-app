@@ -2,36 +2,36 @@ import User from "../models/user.js";
 
 // GET /users
 export const getUsers = (req, res) => {
-    User.find({}, (err, users) => {
-        if (err) {
+    User.find({})
+        .then((users) => {
+            return res.json(users);
+        })
+        .catch((err) => {
             return res.status(500).json({
                 message: "Error getting users.",
                 error: err,
             });
-        }
-
-        return res.json(users);
-    });
+        });
 };
 
 // GET /users/:id
 export const getUser = (req, res) => {
-    User.findById(req.params.id, (err, user) => {
-        if (err) {
+    User.findById(req.params.id)
+        .then((user) => {
+            if (!user) {
+                return res.status(404).json({
+                    message: "User not found",
+                });
+            }
+
+            return res.json(user);
+        })
+        .catch((err) => {
             return res.status(500).json({
                 message: "Error getting user.",
                 error: err,
             });
-        }
-
-        if (!user) {
-            return res.status(404).json({
-                message: "User not found",
-            });
-        }
-
-        return res.json(user);
-    });
+        });
 };
 
 // POST /users
@@ -70,22 +70,22 @@ export const updateUser = (req, res) => {
 
 // DELETE /users/:id
 export const deleteUser = (req, res) => {
-    User.findByIdAndDelete(req.params.id, (err, user) => {
-        if (err) {
+    User.findByIdAndDelete(req.params.id)
+        .then((user) => {
+            if (!user) {
+                return res.status(404).json({
+                    message: "User not found",
+                });
+            }
+
+            return res.json({
+                message: "User deleted successfully",
+            });
+        })
+        .catch((err) => {
             return res.status(500).json({
                 message: "Error deleting user",
                 error: err,
             });
-        }
-
-        if (!user) {
-            return res.status(404).json({
-                message: "User not found",
-            });
-        }
-
-        return res.json({
-            message: "User deleted successfully",
         });
-    });
 };
