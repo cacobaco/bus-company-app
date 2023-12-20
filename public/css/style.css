@@ -4,6 +4,10 @@ body {
     width: 100vw;
 }
 
+.prego-login {
+    min-width: 100%;
+}
+
 .hover-underline-animation {
     display: inline-block;
     position: relative;
