@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("./partials/headContent.ejs") %>
+        <title>Horários da UMa</title>
+
+        <link rel="stylesheet" href="./css/home.css" />
+    </head>
+    <body>
+        <div
+            class="h-100 d-flex flex-column align-items-center justify-content-center"
+        >
+            <div
+                class="d-flex box5 rounded shadow shadow-lg flex-column flex-wrap align-items-center justify-content-center"
+            >
+                <form action="/register" method="post">
+                    <div
+                        class="d-flex flex-column align-items-center justify-content-center mx-4 my-4"
+                    >
+                        <img class="logo" src="./images/HorariosUMa.png" />
+                        <div>
+                            <label class="form-label text-white" for="name"
+                                >Nome:</label
+                            >
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="name"
+                                id="name"
+                            />
+                        </div>
+
+                        <div>
+                            <label class="form-label text-white" for="username"
+                                >Utilizador:</label
+                            >
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="username"
+                                id="username"
+                            />
+                        </div>
+
+                        <div>
+                            <label class="form-label text-white" for="email"
+                                >Email:</label
+                            >
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="email"
+                                id="email"
+                            />
+                        </div>
+
+                        <div>
+                            <label class="form-label text-white" for="password"
+                                >Password:</label
+                            >
+                            <input
+                                class="form-control"
+                                type="password"
+                                name="password"
+                                id="password"
+                            />
+                        </div>
+
+                        <div>
+                            <label
+                                class="form-label text-white"
+                                for="confirmPassword"
+                                >Confirmar password:</label
+                            >
+                            <input
+                                class="form-control"
+                                type="password"
+                                name="confirmPassword"
+                                id="confirmPassword"
+                            />
+                        </div>
+
+                        <input
+                            class="btn btn-warning text-white mt-2"
+                            type="submit"
+                            value="Registar"
+                        />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

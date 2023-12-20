@@ -60,6 +60,8 @@ import {
     getLogin,
     createLogin,
     getLogout,
+    getRegister,
+    createRegister,
 } from "../controllers/loginController.js";
 import { getIndex } from "../controllers/indexController.js";
 import {
@@ -87,6 +89,8 @@ router.get("/cron", getCron);
 router.get("/login", notAuthenticated, getLogin);
 router.post("/login", notAuthenticated, createLogin);
 router.get("/logout", isAuthenticated, getLogout);
+router.get("/register", notAuthenticated, getRegister);
+router.post("/register", notAuthenticated, createRegister);
 
 // PRIVATE ROUTES - NORMAL USER
 router.get("/", isAuthenticated, getIndex);
