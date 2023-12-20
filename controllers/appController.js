@@ -1,3 +1,4 @@
+import User from "../models/user.js";
 import Pass from "../models/pass.js";
 import Schedule from "../models/schedule.js";
 import Payment from "../models/payment.js";
@@ -195,7 +196,82 @@ export const getNews = (req, res) => {
 };
 
 export const getPasses = (req, res) => {
-    return res.render("gerirPasse.ejs");
+    User.find({})
+        .then((users) => {
+            let semPasse = users.filter((user) => {
+                return user.pass == null;
+            });
+
+            let comPasse = users.filter((user) => {
+                return user.pass != null;
+            });
+
+            comPasse.forEach((user) => {
+                user.populate("pass");
+            });
+
+            return res.render("gerirPasse.ejs", {
+                users: semPasse,
+                comPasse: comPasse,
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            return res.render("gerirPasse.ejs", { users: [], comPasse: [] });
+        });
+};
+
+export const createPass = (req, res) => {
+    User.findById(req.body.nomeUtilizador)
+        .then((user) => {
+            const passe = new Pass({
+                code: req.body.numeroPasse,
+                user: user._id,
+                price: req.body.precoPasse,
+                expiresAt: req.body.expiracaoPasse,
+            });
+
+            passe
+                .save()
+                .then((pass) => {
+                    user.pass = pass._id;
+                    user.save()
+                        .then((user) => {
+                            return res.redirect("/passe");
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                            return res.redirect("/passe");
+                        });
+                })
+                .catch((err) => {
+                    console.log(err);
+                    return res.redirect("/passe");
+                });
+        })
+        .catch((err) => {
+            console.log(err);
+            return res.redirect("/passe");
+        });
+};
+
+export const removePass = (req, res) => {
+    User.findById(req.body.numeroPasse)
+        .then((user) => {
+            user.pass = null;
+            user.save()
+                .then((user) => {
+                    return res.redirect("/passe");
+                })
+                .catch((err) => {
+                    console.log(err);
+                    return res.redirect("/passe");
+                });
+        })
+        .catch((err) => {
+            console.log(err);
+            return res.redirect("/passe");
+        });
 };
 
 const getTimeLeft = (date) => {

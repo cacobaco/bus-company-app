@@ -74,6 +74,8 @@ import {
     getPasses,
     createCareer,
     deleteCareer,
+    createPass,
+    removePass,
 } from "../controllers/appController.js";
 
 const router = Router();
@@ -107,6 +109,8 @@ router.post(
 // PRIVATE ROUTES - ADMIN
 router.get("/novidades", isAuthenticated, isAdmin, getNews);
 router.get("/passe", isAuthenticated, isAdmin, getPasses);
+router.post("/passe", isAuthenticated, isAdmin, createPass);
+router.post("/removerPasse", isAuthenticated, isAdmin, removePass);
 
 // // PRIVATE ROUTES - NORMAL USER
 // router.get("/", isAuthenticated, getIndex);
