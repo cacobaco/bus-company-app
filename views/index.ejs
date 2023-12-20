@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><%= title %></title>
-        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <%- include("./partials/headContent.ejs") %>
+        <link rel="stylesheet" href="./css/home.css" />
+        <title>Horários da UMa</title>
     </head>
     <body>
-        <h1><%= title %></h1>
-        <p>Welcome to <%= title %></p>
+        <%- include("./partials/topbar.ejs") %>
+
+        <div
+            class="h-100 d-flex flex-column align-items-center justify-content-center"
+        >
+            <div class="d-flex align-items-center justify-content-center">
+                <h1>Novidades!</h1>
+            </div>
+
+            <div class="d-flex align-items-center overflow-scroll">
+                <div
+                    class="d-flex flex-column justify-content-center align-items-center flex-wrap mb-5 overflow-hidden"
+                >
+                    <!-- Aqui ficam as novidades -->
+
+                    <div class="rounded-3 mx-5 mb-5">
+                        <img
+                            class="boxImage rounded-3"
+                            src="./images/noticia1.png"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include("./partials/navbar.ejs") %>
     </body>
 </html>

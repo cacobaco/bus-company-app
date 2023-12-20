@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("./partials/headContent.ejs") %>
+        <link rel="stylesheet" href="./css/home.css" />
+        <title>Horários da UMa</title>
+    </head>
+    <body>
+        <%- include("./partials/topbar.ejs") %>
+        <div class="h-100 d-flex flex-column justify-content-center">
+            <div
+                class="container d-flex flex-column align-items-center justify-content-center"
+            >
+                <div
+                    class="box2 pb-2 d-flex align-items-center rounded justify-content-center pt-3"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="logo mb-2"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
+                        />
+                    </svg>
+                    <h3 class="mx-1">Gerir Carreiras</h3>
+                </div>
+                <div class="d-flex w-100">
+                    <button
+                        class="btn d-flex justify-content-center align-items-center box2 mx-1 mt-2 rounded border-bottom border-black flex-wrap box4"
+                        id="modal-button4"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalWindow4"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="logo"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
+                            />
+                        </svg>
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="logo"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 6v12m6-6H6"
+                            />
+                        </svg>
+                    </button>
+
+                    <button
+                        class="btn border-none d-flex justify-content-center align-items-center mt-2 rounded box2 border-bottom border-black flex-wrap box4"
+                        id="modal-button5"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalWindow5"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="logo"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
+                            />
+                        </svg>
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="logo"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M18 12H6"
+                            />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="modalWindow4" class="modal fade">
+                <!-- Modal de adicionar carreira -->
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <form action="/carreiras" method="post">
+                            <div class="modal-header modalHeader">
+                                <div class="box2 d-flex justify-content-center">
+                                    <h5 class="modal-title">
+                                        Adicionar Carreira
+                                    </h5>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                ></button>
+                            </div>
+                            <div
+                                class="modal-body modalBody d-flex flex-column justify-content-center"
+                            >
+                                <div
+                                    class="d-flex flex-column justify-content-center"
+                                >
+                                    <div
+                                        class="d-flex flex-column align-items-center justify-content-center"
+                                    >
+                                        <label
+                                            for="numeroCarreira"
+                                            class="form-label"
+                                            >Número da carreira:</label
+                                        ><br />
+                                        <input
+                                            class="w-100 form-control"
+                                            type="text"
+                                            id="numeroCarreira"
+                                            name="numeroCarreira"
+                                        /><br />
+                                        <label
+                                            for="origemCarreira"
+                                            class="form-label"
+                                            >Origem da carreira:</label
+                                        ><br />
+                                        <input
+                                            class="w-100 form-control"
+                                            type="text"
+                                            id="origemCarreira"
+                                            name="origemCarreira"
+                                        /><br />
+                                        <label
+                                            for="destinoCarreira"
+                                            class="form-label"
+                                            >Destino da carreira:</label
+                                        ><br />
+                                        <input
+                                            class="w-100 form-control"
+                                            type="text"
+                                            id="destinoCarreira"
+                                            name="destinoCarreira"
+                                        /><br />
+                                        <label
+                                            for="horaCarreira"
+                                            class="form-label"
+                                            >Hora de partida:</label
+                                        ><br />
+                                        <input
+                                            class="w-100 form-control"
+                                            type="time"
+                                            id="horaCarreira"
+                                            name="horaCarreira"
+                                        /><br />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="modal-footer modalBody d-flex justify-content-center"
+                            >
+                                <button type="submit" class="btn btn-success">
+                                    Adicionar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="modalWindow5" class="modal fade">
+                <!-- Modal de remover carreira -->
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <form action="/deleteCarreiras" method="post">
+                            <input
+                                type="hidden"
+                                name="_method"
+                                value="DELETE"
+                            />
+
+                            <div class="modal-header modalHeader">
+                                <div class="box2 d-flex justify-content-center">
+                                    <h5 class="modal-title">
+                                        Remover Carreira
+                                    </h5>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                ></button>
+                            </div>
+                            <div
+                                class="modal-body modalBody d-flex flex-column justify-content-center"
+                            >
+                                <div
+                                    class="d-flex flex-column justify-content-center"
+                                >
+                                    <div
+                                        class="d-flex flex-column align-items-center justify-content-center"
+                                    >
+                                        <% if (!schedules) { %>
+                                        <h6>Não existem carreiras</h6>
+                                        <% } else { %>
+                                        <label
+                                            for="numeroCarreira"
+                                            class="form-label"
+                                            >Numero da Carreira:</label
+                                        ><br />
+
+                                        <select
+                                            id="numeroCarreira"
+                                            class="form-select"
+                                            name="numeroCarreira"
+                                        >
+                                            <% schedules.forEach((schedule) => {
+                                            %>
+                                            <option value="<%= schedule._id %>">
+                                                (<%= schedule.career %>) <%=
+                                                schedule.origin %> - <%=
+                                                schedule.destination %> - <%=
+                                                schedule.date.toISOString().slice(11,
+                                                16) %>
+                                            </option>
+                                            <% }); %>
+                                        </select>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="modalBody modal-footer d-flex justify-content-center"
+                            >
+                                <button type="submit" class="btn btn-danger">
+                                    Remover
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include("./partials/navbar.ejs") %>
+    </body>
+</html>

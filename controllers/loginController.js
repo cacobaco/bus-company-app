@@ -11,8 +11,8 @@ export const createLogin = passport.authenticate("local", {
     failureRedirect: "/login",
 });
 
-// POST /logout
-export const createLogout = (req, res) => {
+// GET /logout
+export const getLogout = (req, res) => {
     req.logout((err) => {
         if (err) {
             console.log(err);

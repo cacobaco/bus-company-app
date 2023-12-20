@@ -1,0 +1,58 @@
+.logo {
+    height: 5vh;
+}
+
+.sidebarBtnImage {
+    height: 3vh;
+}
+
+.sidebarBtn {
+    height: 3vh;
+}
+
+.sidebarBtn:hover {
+    background-color: #224f7e;
+}
+
+.bar {
+    background-color: #3E8DE3;
+    z-index: 100;
+    min-height: 5vh;
+}
+
+button {
+    background-color: transparent;
+    padding: 0.1px;
+}
+
+.barButton {
+    border-color: #e7e7e7;
+    border-width: 2px !important;
+    border-radius: 20px;
+    transition-duration: 0.3s;
+}
+
+.languageButton {
+    border-color: #e7e7e7;
+    border-width: 2px !important;
+    transition-duration: 0.3s;
+}
+
+.barButton:hover {
+    background: #6a6a6a;
+}
+
+.boxImage {
+    width: 100%;
+}
+
+.container {
+    height: 100vh;
+}
+
+.box:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    min-width: 27.5%;
+    transform: translateY(-2px);
+    transition-duration: 0.3s;
+}

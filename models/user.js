@@ -27,6 +27,12 @@ const userSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "Pass",
         },
+        payments: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "Payment",
+            },
+        ],
     },
     { timestamps: true }
 );

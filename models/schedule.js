@@ -2,18 +2,22 @@ import mongoose, { Schema } from "mongoose";
 
 const scheduleSchema = new Schema(
     {
-        type: {
+        career: {
             type: String,
-            enum: ["weekday", "weekend", "holiday"],
             required: true,
-            default: "weekday",
         },
-        scheduleStops: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "ScheduleStop",
-            },
-        ],
+        origin: {
+            type: String,
+            required: true,
+        },
+        destination: {
+            type: String,
+            required: true,
+        },
+        date: {
+            type: Date,
+            required: true,
+        },
     },
     { timestamps: true }
 );

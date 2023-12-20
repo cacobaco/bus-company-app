@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include("./partials/headContent.ejs") %>
+        <link rel="stylesheet" href="./css/home.css" />
+        <title>Horários da UMa</title>
+    </head>
+    <body>
+        <%- include("./partials/topbar.ejs") %>
+        <div class="h-100 d-flex flex-column justify-content-center">
+            <div
+                class="container d-flex align-items-center justify-content-center"
+            >
+                <div
+                    class="shadow-lg d-flex mx-auto align-items-center justify-content-center p-4 rounded flex-wrap box2"
+                >
+                    <% if (!pass) { %>
+                    <div>
+                        <h6 class="text-white">Não tem um passe associado.</h6>
+                    </div>
+                    <% } else { %>
+                    <div>
+                        <img class="passe rounded-3" src="./images/passe.png" />
+                    </div>
+
+                    <div
+                        class="d-flex align-items-center box3 rounded flex-column flex-wrap justify-content-center mx-auto my-3"
+                    >
+                        <!-- Informações do Passe -->
+
+                        <h6 class="text-white mt-3">
+                            Modalidade: Sub23 - Combinado
+                        </h6>
+                        <h6 class="text-white">Titular: <%= user.name %></h6>
+                        <h6 class="text-white">
+                            Expira a: <%= pass.expiresAt.toISOString().slice(0,
+                            10) %>
+                        </h6>
+                        <button
+                            class="btn btn-warning text-white mb-3"
+                            id="modal-button"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalWindow"
+                        >
+                            Carregar passe
+                        </button>
+                    </div>
+
+                    <div id="modalWindow" class="modal fade">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header modalHeader">
+                                    <div
+                                        class="box2 d-flex justify-content-center"
+                                    >
+                                        <h5 class="modal-title">
+                                            Método de Pagamento
+                                        </h5>
+                                    </div>
+                                    <button
+                                        class="btn-close"
+                                        data-bs-dismiss="modal"
+                                    ></button>
+                                </div>
+                                <div
+                                    class="modal-body modalBody d-flex flex-column justify-content-center"
+                                >
+                                    <form action="/payment" method="post">
+                                        <div
+                                            class="d-flex flex-column justify-content-center"
+                                        >
+                                            <div
+                                                class="btn-group btn-group-toggle"
+                                                data-toggle="buttons"
+                                            >
+                                                <div
+                                                    class="d-flex flex-column align-items-center justify-content-center"
+                                                >
+                                                    <label class="btn">
+                                                        <img
+                                                            class="metodoImg"
+                                                            src="./images/mbway.png"
+                                                        />
+                                                    </label>
+                                                    <div>
+                                                        <input
+                                                            type="radio"
+                                                            name="option"
+                                                            value="mbway"
+                                                            id="option1"
+                                                            autocomplete="off"
+                                                            checked
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="d-flex flex-column align-items-center justify-content-center"
+                                                >
+                                                    <label class="btn">
+                                                        <img
+                                                            class="metodoImg"
+                                                            src="./images/cartao.png"
+                                                        />
+                                                    </label>
+                                                    <div>
+                                                        <input
+                                                            type="radio"
+                                                            name="option"
+                                                            value="card"
+                                                            id="option2"
+                                                            autocomplete="off"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                class="d-flex flex-column align-items-center justify-content-center"
+                                                id="hiddenDiv"
+                                            >
+                                                <label for="numeroTelemóvel"
+                                                    >Telemóvel:</label
+                                                ><br />
+                                                <input
+                                                    type="text"
+                                                    id="telemovel"
+                                                    name="telemovel"
+                                                /><br />
+                                            </div>
+
+                                            <div
+                                                class="d-flex flex-column align-items-center justify-content-center d-none"
+                                                id="hiddenDiv2"
+                                            >
+                                                <label for="nomeTitular"
+                                                    >Nome do Titular:</label
+                                                ><br />
+                                                <input
+                                                    type="text"
+                                                    id="nomeTitular"
+                                                    name="nomeTitular"
+                                                /><br />
+                                                <label for="numeroCartao"
+                                                    >Número do Cartão:</label
+                                                ><br />
+                                                <input
+                                                    type="text"
+                                                    id="numeroCartao"
+                                                    name="numeroCartao"
+                                                /><br />
+                                                <label for="morada"
+                                                    >Morada:</label
+                                                ><br />
+                                                <input
+                                                    type="text"
+                                                    id="morada"
+                                                    name="morada"
+                                                /><br />
+                                                <label for="cvc">CVC:</label
+                                                ><br />
+                                                <input
+                                                    type="text"
+                                                    id="cvc"
+                                                    name="cvc"
+                                                /><br />
+                                            </div>
+
+                                            <script>
+                                                document
+                                                    .querySelectorAll(
+                                                        'input[name="option"]'
+                                                    )
+                                                    .forEach(function (radio) {
+                                                        radio.addEventListener(
+                                                            "change",
+                                                            function () {
+                                                                if (
+                                                                    document.getElementById(
+                                                                        "option1"
+                                                                    ).checked
+                                                                ) {
+                                                                    document
+                                                                        .getElementById(
+                                                                            "hiddenDiv"
+                                                                        )
+                                                                        .classList.remove(
+                                                                            "d-none"
+                                                                        );
+                                                                    document
+                                                                        .getElementById(
+                                                                            "hiddenDiv2"
+                                                                        )
+                                                                        .classList.add(
+                                                                            "d-none"
+                                                                        );
+                                                                } else {
+                                                                    document
+                                                                        .getElementById(
+                                                                            "hiddenDiv"
+                                                                        )
+                                                                        .classList.add(
+                                                                            "d-none"
+                                                                        );
+                                                                    document
+                                                                        .getElementById(
+                                                                            "hiddenDiv2"
+                                                                        )
+                                                                        .classList.remove(
+                                                                            "d-none"
+                                                                        );
+                                                                }
+                                                            }
+                                                        );
+                                                    });
+                                            </script>
+
+                                            <div
+                                                class="d-flex justify-content-center align-items-center"
+                                            >
+                                                <h6 class="mt-4">
+                                                    Total: <%= pass.price %>€
+                                                </h6>
+                                                <!-- Aqui total, que depende do tipo de passe -->
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="modal-footer modalBody d-flex justify-content-center"
+                                        >
+                                            <button
+                                                type="submit"
+                                                class="btn btn-success"
+                                            >
+                                                Pagar
+                                            </button>
+                                        </div>
+                                        <div
+                                            class="d-flex justify-content-center align-items-center"
+                                        >
+                                            <h6
+                                                class="mt-2 modalBody modal-footer"
+                                            >
+                                                O passe expira a <%=
+                                                renewDate.toISOString().slice(0,
+                                                10) %>
+                                            </h6>
+                                            <!-- Aqui quando expira caso seja carregado -->
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <%- include("./partials/navbar.ejs") %>
+    </body>
+</html>
